@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <span>Web Site</span>
+
+  
+  <ul class="header-menu" style="margin-left: auto;" *ngIf="!(isHandset$ | async)">
+    <li>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Anasayfa</a>
+    </li>
+    <li>
+      <a routerLink="/customer" routerLinkActive="active">Müşteri</a>
+    </li>
+    <li>
+      <a routerLink="/products" routerLinkActive="active">Ürünler</a>
+    </li>
+    <li>
+      <a routerLink="/other" routerLinkActive="active">Diğer</a>
+    </li>
+  </ul>
+</mat-toolbar>

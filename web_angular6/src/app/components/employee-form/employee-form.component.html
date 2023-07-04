@@ -1,0 +1,47 @@
+<div mat-dialog-title>
+  <h1>Registration Form</h1>
+</div>
+
+<form [formGroup]="empDetail" (ngSubmit)="submitForm()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput type="text" placeholder="Jack" formControlName="firstName">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Patrick" formControlName="lastName">
+      </mat-form-field>
+    </div>
+    <div class="row">
+     
+      <mat-form-field appearance="outline">
+        <mat-label>Date of birth</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dob">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-radio-group aria-label="Select an option" formControlName="gender">
+        <mat-label><b>Gender</b></mat-label>
+        <mat-radio-button value="male">Male</mat-radio-button>
+        <mat-radio-button value="female">Female</mat-radio-button>
+        <mat-radio-button value="others">Others</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+        <input matInput type="text" placeholder="OpenAI" formControlName="address">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div mat-dialog-actions class="actions">
+    <button mat-button type="submit" [disabled]="empDetail.invalid" data-bs-toggle="modal" (click)="submitForm()">Submit</button>
+    <button mat-button type="button" (click)="cancelDialog()" >Cancel</button>
+  </div>
+</form>
